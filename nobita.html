@@ -1,10 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
-<body>
-$END$
+<body onload="read()">
+     <img id="img" src="https://upload.wikimedia.org/wikipedia/vi/2/2c/Nobita.png" style="position:absolute;left:0; top:0;" height="100" width="80">
 </body>
 </html>
+<script>
+    function up()
+    {
+        let a=document.getElementById('img');
+
+        a.style.top=parseInt(a.style.top)-5+"px";
+    }
+    function down()
+    {
+        var a=document.getElementById('img');
+
+        a.style.top=parseInt(a.style.top)+5+"px";
+    }
+    function left()
+    {
+        var a=document.getElementById('img');
+        a.style.left=parseInt(a.style.left)-5+"px";
+    }
+    function right()
+    {
+        var a=document.getElementById('img');
+        a.style.left=parseInt(a.style.left)+5+"px";
+    }
+    function dichuyen(evt)
+    {
+        switch(evt.keyCode){
+            case 37:
+                left();
+                break;
+            case 39:
+                right();
+                break;
+            case 38:
+                up();
+                break;
+            case 40:
+                down();
+                break;
+        }
+    }
+     function read()
+     {
+         window.addEventListener('keydown', dichuyen);
+     }
+</script>

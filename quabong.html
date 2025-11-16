@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+      <img id="img" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Football_%28soccer_ball%29.svg" width="200" height="200">
+      <hr>
+      <button type="button" id="dichphai" onclick="dichphai()">dich phai </button>
 </body>
 </html>
+<script>
+    let a=document.getElementById('img');
+    function anh()
+    {
+        let a=document.getElementById('img');
+         a.style.position="relative";
+         a.style.left="0px";
+    }
+    function dichphai(){
+        a.style.left=parseInt(a.style.left)+10+"px";
+    }
+    window.onload = anh();
+</script>

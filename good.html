@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+     <button type="button" id="good" onclick="read()">GOOD</button>
+     <button type="button" id="fast" onclick="read1()">FAST</button>
+     <button type="button" id="cheap" onclick="read2()">CHEAP</button>
+     <hr>
+      <p id="ketqua"></p>
 </body>
 </html>
+ <script>
+     let good=false;
+     let fast=false;
+     let cheap=false;
+     let kq;
+     function read(){
+         if ((!good)&&(!fast)&&(!cheap)) good=true;
+         else if (((fast==true)&&(!cheap))||((!fast)&&(cheap==true))) good=true;
+         else
+         if (!good) {good=true;fast=true;cheap=false;}
+          else {good=false;fast=true;cheap=true;}
+          kt();
+     }
+     function read1(){
+         if ((!good)&&(!fast)&&(!cheap)) fast=true;
+         else if (((good==true)&&(!cheap))||((!good)&&(cheap==true))) fast=true;
+         else
+         if (!fast) {good=false;fast=true;cheap=true;}
+         else {good=true;fast=false;cheap=true;}
+         kt();
+     }
+
+     function read2(){
+         if ((!good)&&(!fast)&&(!cheap)) cheap=true;
+         else if (((good==true)&&(!fast))||((!good)&&(fast==true))) cheap=true;
+         else
+         if (!cheap) {good=true;fast=false;cheap=true;}
+         else {good=true;fast=true;cheap=false;}
+         kt();
+     }
+     function kt(){
+        let a;if (good==true) a="good: on ";else a="good: off ";
+         let b;if (fast==true) b="fast: on ";else b="fast: off ";
+         let c;if (cheap==true) c="cheap: on ";else c="cheap: off ";
+         let kq;
+         kq=a+b+c;
+         document.getElementById('ketqua').innerText=kq;
+     }
+ </script>

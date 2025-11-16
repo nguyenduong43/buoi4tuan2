@@ -1,10 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+      <h3>doi C->F</h3>
+      <input type="text" id="C" placeholder="nhap do C">
+      <button type="button" onclick="nhietdo()">kiem tra</button>
+       <p id="ketqua1"></p>
+<hr>
+      <h3>doi m->feet</h3>
+      <input type="text" id="m" placeholder="nhap m">
+      <button type="button" onclick="chieudai()">kiem tra</button>
+      <p id="ketqua2"></p>
+<hr>
+      <h3>S hinh vuong,chu nhat</h3>
+      <input type="text" id="chieudai" placeholder="nhap chieu dai">
+      <input type="text" id="chieurong" placeholder="nhap chieu rong">
+      <button type="button" onclick="dientich()">kiem tra</button>
+      <p id="ketqua34"></p>
+<hr>
+      <h3>S tam giac vuong</h3>
+      <input type="text" id="a" placeholder="nhap a">
+      <input type="text" id="b" placeholder="nhap b">
+      <button type="button" onclick="dientichtamgiac()">kiem tra</button>
+      <p id="ketqua5"></p>
+<hr>
+      <h3>giai phuong trinh</h3>
+      <input type="text" id="a1" placeholder="nhap a">
+      <input type="text" id="b1" placeholder="nhap b">
+      <input type="text" id="c1" placeholder="nhap c">
+      <button type="button" onclick="giaipt()">kiem tra</button>
+      <p id="ketqua67"></p>
+<hr>
+      <h3>kiem tra tuoi</h3>
+      <input type="text" id="age" placeholder="nhap tuoi">
+      <button type="button" onclick="tuoi()">kiem tra</button>
+      <p id="ketqua8"></p>
+<hr>
+      <h3>3 canh tam giac</h3>
+      <input type="text" id="canh1" placeholder="nhap canh 1">
+      <input type="text" id="canh2" placeholder="nhap canh 2">
+      <input type="text" id="canh3" placeholder="nhap canh 3">
+      <button type="button" onclick="tamgiac()">kiem tra</button>
+      <p id="ketqua9"></p>
+<hr>
+      <h3>tinh gia dien</h3>
+      <input type="text" id="tieuthu" placeholder="nhap so dien tieu thu">
+      <button type="button" onclick="thanhtoan()">kiem tra</button>
+      <p id="ketqua10"></p>
+ <hr>
+      <h3>tinh thue ca nhan</h3>
+      <input type="text" id="thunhap" placeholder="nhap so thu nhap">
+      <button type="button" onclick="thue()">kiem tra</button>
+      <p id="ketqua11"></p>
+      <hr>
+      <h3>lai suat</h3>
+      <input type="text" id="vay" placeholder="nhap so vay">
+      <input type="text" id="thang" placeholder="nhap thang vay">
+      <input type="text" id="laisuat" placeholder="nhap lai suat">
+      <button type="button" onclick="laisuat()">kiem tra</button>
+      <p id="ketqua12"></p>
 </body>
 </html>
+<script>
+    function nhietdo(){
+        let C=parseInt(document.getElementById('C').value);
+        let F=C*9/5+32;
+        document.getElementById("ketqua1").innerHTML=+C+"C="+F+"F";
+    }
+    function chieudai(){
+        let m=parseInt(document.getElementById('m').value);
+        let feet=m*2.808;
+        document.getElementById("ketqua2").innerHTML=+m+" met="+feet+" feet";
+    }
+    function dientich(){
+        let chieudai=parseInt(document.getElementById('chieudai').value);
+        let chieurong=parseInt(document.getElementById('chieurong').value);
+        let S=chieudai*chieurong;
+        document.getElementById("ketqua34").innerHTML="S hcn la "+S;
+    }
+    function dientichtamgiac(){
+        let a=parseInt(document.getElementById('a').value);
+        let b=parseInt(document.getElementById('b').value);
+        let S=a*b/2;
+        document.getElementById("ketqua5").innerHTML="S tam giac la "+S;
+    }
+    function giaipt(){
+        let a=parseInt(document.getElementById('a1').value);
+        let b=parseInt(document.getElementById('b1').value);
+        let c=parseInt(document.getElementById('c1').value);
+        let t;
+        if (a==0)
+        { if (b==0)
+            if (c!=0) kq="phuong trinh vo nghiem";
+            else kq="phuong trinh vo so nghiem";
+          else if (c==0) kq="phuong trinh vo so nghiem";
+               else kq= "phuong trinh co nghiem x="+-c/b;
+        }
+        else
+        {
+            if (b==0 && c==0) kq="phuong trinh vo so nghiem";
+            else{
+                 t=b*b-4*a*c;
+                if (t<0) kq="phuong trinh vo nghiem";
+                else if (t==0) kq="phuong trinh co nghiem kep x="+(-b/(2*a));
+                else {
+                    let x1=(-b+Math.sqrt(t))/(2*a);
+                    let x2=(-b-Math.sqrt(t))/(2*a);
+                    kq="phuong trinh co 2 nghiem phan biet x1="+x1+ " va x2="+x2;
+                }
+            }
+        }
+        document.getElementById("ketqua67").innerHTML=kq;
+    }
+    function tuoi()
+    {
+        let age=parseInt(document.getElementById('age').value);
+        if(age<120&&age>0) document.getElementById("ketqua8").innerHTML="La tuoi cua nguoi";
+        else document.getElementById("ketqua8").innerHTML="Khong la tuoi cua nguoi";
+    }
+    function tamgiac(){
+        let canh1=parseInt(document.getElementById('canh1').value);
+        let canh2=parseInt(document.getElementById('canh2').value);
+        let canh3=parseInt(document.getElementById('canh3').value);
+        if (canh1>0 && canh2>0 && canh3>0 && (canh1+canh2>canh3) && (canh1+canh3>canh2) && (canh3+canh2>canh1))
+            document.getElementById("ketqua9").innerHTML="day la 3 canh cua 1 tm giac";
+        else document.getElementById("ketqua9").innerHTML="day khong la 3 canh cua 1 tam giac";
+    }
+    function thanhtoan(){
+        let tieuthu=parseInt(document.getElementById('tieuthu').value);
+        let kq=0;
+        if (tieuthu<=20) kq=kq+10000*tieuthu;
+        else if (tieuthu<=50) kq=kq+10000*20+15000*(tieuthu-20);
+        else kq=kq+10000*20+15000*30+20000*(tieuthu-50);
+        document.getElementById('ketqua10').innerHTML=kq;
+    }
+    function thue(){
+        let thunhap=parseInt(document.getElementById('thunhap').value);
+        let kq=0;
+        if (thunhap<=5000000) kq=thunhap/20;
+        else if (tieuthu<=10000000) kq=thunhap/10
+        else kq=thunhap/100*15;
+        document.getElementById('ketqua11').innerHTML="thue ca nhan la "+kq;
+
+    }
+   function laisuat(){
+        let vay=parseInt(document.getElementById('vay').value);
+        let thang=parseInt(document.getElementById('thang').value);
+        let laisuat=parseInt(document.getElementById('laisuat').value);
+        let i=0;
+        while(i<thang){
+            vay=vay+vay*laisuat/100;
+            i=i+1;
+        }
+        document.getElementById('ketqua12').innerHTML="tien vay sau lai suat kep la "+vay;
+   }
+</script>

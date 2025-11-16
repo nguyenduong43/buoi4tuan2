@@ -1,10 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+       <h3>so chia het</h3>
+       <input type="text" id="a" placeholder="nhap a">
+       <input type="text" id="b" placeholder="nhap b">
+       <button type="button" onclick="chiahet()">kiem tra</button>
+       <p id="ketqua1"></p>
+<hr>
+       <h3>tuoi vo lop 10</h3>
+       <input type="text" id="tuoi" placeholder="nhap tuoi">
+       <button type="button" onclick="lop10()">kiem tra</button>
+       <p id="ketqua2"></p>
+<hr>
+       <h3>Kiem tra am duong</h3>
+       <input type="text" id="so" placeholder="nhap so">
+       <button type="button" onclick="kiemtra()">kiem tra</button>
+       <p id="ketqua3"></p>
+<hr>
+       <h3>tim so lon nhat</h3>
+       <input type="text" id="so1" placeholder="nhap a">
+       <input type="text" id="so2" placeholder="nhap b">
+       <input type="text" id="so3" placeholder="nhap c">
+       <button type="button" onclick="max()">kiem tra</button>
+       <p id="ketqua4"></p>
+<hr>
+       <h3>xep loai hoc luc</h3>
+       <input type="text" id="kiemtra" placeholder="nhap diem kiem tra">
+       <input type="text" id="giuaki" placeholder="nhap diem giua ki">
+       <input type="text" id="cuoiki" placeholder="nhap nhap diem cuoi ki">
+       <button type="button" onclick="hocluc()">kiem tra</button>
+       <p id="ketqua5"></p>
+<hr>
+       <h3>tinh hoa hong</h3>
+       <input type="text" id="doanhso" placeholder="nhap doanh so ">
+       <button type="button" onclick="hoahong()">kiem tra</button>
+       <p id="ketqua6"></p>
+ <hr>
+       <h3>tinh phi cuoc goi</h3>
+       <input type="text" id="time" placeholder="nhap so phut goi ">
+       <button type="button" onclick="phicuoc()">kiem tra</button>
+       <p id="ketqua7"></p>
+       <hr>
+</body>
 </body>
 </html>
+<script>
+    function chiahet(){
+        let a=parseInt(document.getElementById('a').value);
+        let b=parseInt(document.getElementById('b').value);
+        if (a%b==0) document.getElementById('ketqua1').innerHTML=+a +" chia het cho "+b;
+        else document.getElementById('ketqua1').innerHTML=+a+" khong chia het cho "+b;
+    }
+    function lop10(){
+        let tuoi=parseInt(document.getElementById('tuoi').value);
+        if (tuoi>=15) document.getElementById('ketqua2').innerHTML=+tuoi+" tuoi du dieu kien vao lop 10";
+        else document.getElementById("ketqua2").innerHTML=+tuoi+" tuoi khong du dieu kien vao lop 10";
+    }
+    function kiemtra(){
+        let so=parseInt(document.getElementById('so').value);
+        if(so<0) document.getElementById('ketqua3').innerHTML=+so+" nho hon 0";
+        else if(so>0) document.getElementById('ketqua3').innerHTML=+so+" lon hon 0";
+        else document.getElementById('ketqua3').innerHTML=+so+" bang 0";
+    }
+    function max(){
+        let so1=parseInt(document.getElementById('so1').value);
+        let so2=parseInt(document.getElementById('so2').value);
+        let so3=parseInt(document.getElementById('so3').value);
+        if (so1>so2 && so1>so3) document.getElementById('ketqua4').innerHTML=+so1+" la so lon nhat";
+        else if (so2>so3) document.getElementById('ketqua4').innerHTML=+so2+" la so lon nhat";
+        else document.getElementById('ketqua4').innerHTML=+so3+" la so lon nhat";
+    }
+    function hocluc(){
+        let kiemtra=parseInt(document.getElementById('kiemtra').value);
+        let giuaki=parseInt(document.getElementById('giuaki').value);
+        let cuoiki=parseInt(document.getElementById('cuoiki').value);
+        let tb=(kiemtra+giuaki+cuoiki)/3
+        tb=tb.toFixed(2);
+        if (tb<5) document.getElementById('ketqua5').innerHTML="hoc luc kem";
+        else if (tb<8) document.getElementById('ketqua5').innerHTML="hoc luc trung binh";
+        else document.getElementById('ketqua5').innerHTML="hoc luc gioi";
+    }
+    function hoahong(){
+        let doanhso=parseInt(document.getElementById('doanhso').value);
+        document.getElementById("ketqua6").innerHTML="hoa hong nhan dc la "+doanhso/10;
+    }
+    function phicuoc(){
+        let time=parseInt(document.getElementById('time').value);
+        let kq=25000;
+        if (time<=50) kq=kq+600*time;
+        else if (time<=200) kq=kq+600*50+400*(time-50);
+        else kq=kq+600*50+400*150+200*(time-200);
+        document.getElementById('ketqua7').innerHTML=kq;
+    }
+</script>

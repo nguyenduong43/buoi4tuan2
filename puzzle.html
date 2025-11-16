@@ -1,10 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+      <h3>HÃY TÌM NHỮNG CON MÈO VÀ GIANH CHIẾN THẮNG</h3>
+      <button type="button" id="anh1" onclick="anh1()">
+          <img id="img" src="anh/anh1.jpg" width="300" height="200">
+      </button>
+      <br>
+      <button type="button" id="anh2" onclick="anh2()">
+          <img id="img2" src="anh/anh11.jpg" width="300" height="200">
+      </button>
+      <br>
+      <button type="button" id="anh3" onclick="anh3()">
+          <img id="img3" src="anh/anh21.jpg" width="300" height="200">
+      </button>
+      <hr>
+      <p id="ketqua"></p>
+
 </body>
 </html>
+<script>
+    function anh1()
+    {
+        let img = document.getElementById('img');
+        if (img.src.includes('anh1.jpg')) {
+            img.src = "anh/anh11.jpg";
+        } else
+           if (img.src.includes('anh/anh11.jpg')) img.src = "anh/anh21.jpg";
+           else img.src = "anh/anh1.jpg";
+          kt();
+       // img.src="anh/anh1.jpg";
+    }
+    function anh2()
+    {
+        let img = document.getElementById('img2');
+        if (img.src.includes('anh2.jpg')) {
+            img.src = "anh/anh12.jpg";
+        } else
+        if (img.src.includes('anh/anh12.jpg')) img.src = "anh/anh22.jpg";
+        else img.src = "anh/anh2.jpg";
+        kt();
+        // img.src="anh/anh1.jpg";
+    }
+    function anh3()
+    {
+        let img = document.getElementById('img3');
+        if (img.src.includes('anh3.jpg')) {
+            img.src = "anh/anh13.jpg"
+        } else
+        if (img.src.includes('anh/anh13.jpg')) img.src = "anh/anh23.jpg";
+        else img.src = "anh/anh3.jpg";
+        kt();
+        // img.src="anh/anh1.jpg";
+    }
+    function kt() {
+        let a = document.getElementById("img");
+        let b = document.getElementById("img2");
+        let c = document.getElementById("img3");
+        if (a.src.includes('anh1.jpg') && (b.src.includes('anh2.jpg')) && (c.src.includes('anh3.jpg')))
+         alert("victory") ; // document.getElementById('ketqua').innerHTML="VICTORY";
+        //else document.getElementById('ketqua').innerHTML="";
+    }
+</script>

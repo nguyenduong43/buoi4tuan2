@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#no {*/
+        /*    position: absolute; !* cần để di chuyển *!*/
+        /*    left: 100px;*/
+        /*    top: 100px;*/
+        /*}*/
+    </style>
 </head>
 <body>
-$END$
+   <form >
+       <fieldset>
+           <h2>DO YOU LOVE ME</h2>
+<button type="button" id="oke" onclick="yes()">YES</button>
+<button type="button" id="no" onmouseover="dichuyen()">NO </button>
+       </fieldset>
+    </form>
 </body>
 </html>
+<script>
+    let a=document.getElementById('no');
+    a.style.position="absolute";
+    function dichuyen(){
+        a.style.left=Math.random()*(window.innerWidth - a.offsetWidth)+"px";
+        a.style.top=Math.random()*(window.innerWidth - a.offsetWidth)+"px";
+
+    }
+    function yes(){
+        alert("<3");
+    }
+</script>

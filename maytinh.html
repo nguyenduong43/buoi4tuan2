@@ -1,10 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+         button
+         {
+             width: 100%;
+         }
+     </style>
 </head>
 <body>
-$END$
+    <form>
+     <table>
+         <tr>
+             <td colspan="4"><input style="text-align: right;" type="text" id="ketqua" ></td>
+         </tr>
+         <tr>
+            <td><button type="button" value="1" onclick="layGiaTri(this)" >1 </button>
+             <td><button type="button" value="2" onclick="layGiaTri(this)">2 </button> </td>
+             <td><button type="button" value="3" onclick="layGiaTri(this)">3 </button> </td>
+             <td><button type="button" value="+" onclick="layGiaTri(this)">+ </button> </td>
+         </tr>
+         <tr>
+             <td><button type="button" value="4" onclick="layGiaTri(this)">4 </button>
+             <td><button type="button" value="5" onclick="layGiaTri(this)">5 </button> </td>
+             <td><button type="button" value="6" onclick="layGiaTri(this)">6 </button> </td>
+             <td><button type="button" value="-" onclick="layGiaTri(this)">- </button> </td>
+         </tr>
+         <tr>
+             <td><button type="button" value="7" onclick="layGiaTri(this)">7 </button>
+             <td><button type="button" value="8" onclick="layGiaTri(this)">8 </button> </td>
+             <td><button type="button" value="9" onclick="layGiaTri(this)">9 </button> </td>
+             <td><button type="button" value="*" onclick="layGiaTri(this)">* </button> </td>
+         </tr>
+         <tr>
+             <td><button type="button" onclick="xoa()">C</button>
+             <td><button type="button" value="0" onclick="layGiaTri(this)" >0 </button> </td>
+             <td><button type="button" value="tinh" onclick="tinh()">= </button> </td>
+             <td><button type="button" value="/" onclick="layGiaTri(this)">/ </button> </td>
+         </tr>
+     </table>
+    </form>
 </body>
 </html>
+<script>
+    let so1='';let kt=false;let pheptinh;let so2='';
+    function layGiaTri(btn) {
+        document.getElementById("ketqua").value +=  btn.value;
+    //     if ((btn.value != '+')&&(btn.value != '-' )&&(btn.value != '*')&&(btn.value != '/')&&(kt==false)) so1=so1+btn.value;
+    //     else kt=true;
+    //     if ((btn.value != '+')&&(btn.value != '-' )&&(btn.value != '*')&&(btn.value != '/')&&(kt==true)) so2=so2+btn.value;
+    //     if ((btn.value == '+')||(btn.value == '-' )||(btn.value == '*')||(btn.value == '/')) pheptinh=btn.value;
+    //
+    //
+        }
+    function tinh(){
+        // let so3=parseInt(so1);
+        // let so4=parseInt(so2);
+        // let kq=0;
+        // //document.write(pheptinh);
+        // switch(pheptinh){
+        //     case '+':
+        //           kq=so3+so4;
+        //         break;
+        //     case '-':
+        //           kq=so3-so4;
+        //         break;
+        //     case '*':
+        //         kq=  so3*so4;
+        //         break;
+        //     case '/':
+        //         kq=  so3/so4;
+        //         break;
+        //
+        // }
+        // so1=kq;so2=''
+        let xau=document.getElementById("ketqua").value;
+        let kq=eval(xau);
+        document.getElementById('ketqua').value=kq;
+
+    }
+    function xoa() {
+        so1 = '';
+        so2 = '';
+        pheptinh = '';
+        kt = false;
+        document.getElementById("ketqua").value = '';
+    }
+</script>

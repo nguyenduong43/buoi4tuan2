@@ -1,10 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+       <input type="text" id="cannang" placeholder="nhap can nang...">
+       <br>
+       <input type="text" id="chieucao" placeholder="nhap chieu cao...">
+       <br>
+       <button type="button" onclick="bmi()">do suc khoe</button>
+       <p id="ketqua"></p>
 </body>
 </html>
+<script>
+    function bmi()
+    {
+        let inputchieucao=document.getElementById('chieucao').value;
+        let inputcannang=document.getElementById('cannang').value;
+        let chieucao=parseFloat(inputchieucao);
+        let cannang=parseFloat(inputcannang);
+        let bmi=cannang/(chieucao*chieucao);
+        switch(true){
+            case (bmi<18.5):
+                document.getElementById("ketqua").innerHTML="Underweight";
+                break;
+            case (bmi<25):
+                document.getElementById("ketqua").innerHTML="Normal";
+                break;
+            case (bmi<30):
+                document.getElementById("ketqua").innerHTML="Overweight";
+                break;
+            default:
+                document.getElementById("ketqua").innerHTML="Obese";
+        }
+    }
+</script>
